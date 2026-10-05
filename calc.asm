@@ -1,21 +1,13 @@
 ; ============================================================
-; PURE x86-64 ASSEMBLY CALCULATOR
+; x86-64 ASSEMBLY CALCULATOR
 ; NASM syntax
 ; Linux x86-64
-;
-; No C
-; No C++
-; No libc
-; No printf
-; No scanf
-;
 ; Uses Linux syscalls directly.
 ; ============================================================
 
 global _start
 
 section .data
-
     welcome db "=== PURE ASM CALCULATOR ===", 10
             db "Enter expression like: 12 + 5", 10
             db "> "
@@ -24,22 +16,17 @@ section .data
 
     result_msg db "Result: "
     result_len equ $ - result_msg
-
     newline db 10
-
     error_msg db "Invalid expression.", 10
     error_len equ $ - error_msg
 
 
 section .bss
-
     input       resb 128
     output      resb 32
-
     num1        resq 1
     num2        resq 1
     operator    resb 1
-
 
 section .text
 
